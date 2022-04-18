@@ -1,18 +1,30 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
+
 <head>
-    <title>ueditor</title>
+    <title>富文本编辑器测试</title>
 </head>
-<body>
-    <script id="container" name="content" type="text/plain">初始化内容</script>
-    <script type="text/javascript" src="<%=basePath%>js/ueditor1_4_3/ueditor.config.js"/>
-    <script type="text/javascript" src="<%=basePath%>js/ueditor1_4_3/ueditor.all.js"/>
-    <script type="text/javascript">
-        var ue=UE.getEditor('container')
-    </script>
+
+<body class="gray-bg">
+<script id="container" name="content" type="text/plain">这里写你的初始化内容</script>
+<script type="text/javascript" src="<%=basePath%>static/js/ueditor1_4_3/ueditor.config.js"></script>
+<script type="text/javascript" src="<%=basePath%>static/js/ueditor1_4_3/ueditor.all.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=basePath%>statcc/js/plugs/ueditor1_4_3_3-gbk-php/lang/zh-cn/zh-cn.js"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var ue = UE.getEditor('container');
+</script>
+
+
 </body>
+
 </html>

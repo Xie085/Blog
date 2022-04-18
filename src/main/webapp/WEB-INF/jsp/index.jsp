@@ -11,7 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/users/1">请求usershuju</a>
-<a href="${pageContext.request.contextPath}/test">请求测试ueditor</a>
+<a href="${pageContext.request.contextPath}/users/1">请求usershuju</a><br/>
+<a href="${pageContext.request.contextPath}/testueditorTest">请求测试ueditor</a><br/>
+<a href="${pageContext.request.contextPath}/test">测试testadd</a>
 </body>
 </html>

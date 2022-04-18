@@ -36,7 +36,7 @@ public class UserController {
         return "index";
     }
 
-    @RequestMapping("/test")
+    @RequestMapping("/testueditorTest")
     public String testController(){
         return "ueditorTest";
     }
