@@ -10,8 +10,8 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=GB18030">
-    <link href="<%=basePath%>static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<%=basePath%>static/css/style.css" rel="stylesheet">
+    <link href="<%=basePath%>css/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=basePath%>css/style.css" rel="stylesheet">
     <title>新增博客</title>
 </head>
 <body>
@@ -35,16 +35,16 @@
 </div>
 
 <!-- Mainly scripts -->
-<script src="<%=basePath%>static/js/jquery-2.1.1.min.js"></script>
-<script src="<%=basePath%>static/js/bootstrap.min.js"></script>
+<script src="<%=basePath%>js/jquery-2.1.1.min.js"></script>
+<script src="<%=basePath%>js/bootstrap.min.js"></script>
 <%--自定义js--%>
-<script src="<%=basePath%>static/js/article/add_article_test.js"></script>
+<script src="<%=basePath%>js/article/add_article_test.js"></script>
 <!-- 配置文件 -->
-<script type="text/javascript" src="<%=basePath%>static/js/ueditor1_4_3/ueditor.config.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/ueditor1_4_3/ueditor.config.js"></script>
 <!-- 编辑器源码文件 -->
-<script type="text/javascript" src="<%=basePath%>static/js/ueditor1_4_3/ueditor.all.js"></script>
-<script type="text/javascript" charset="utf-8" src="<%=basePath%>static/js/ueditor1_4_3/lang/zh-cn/zh-cn.js"></script>
-<script src="<%=basePath%>static/js/plugins/chosen/chosen.jquery.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/ueditor1_4_3/ueditor.all.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=basePath%>js/ueditor1_4_3/lang/zh-cn/zh-cn.js"></script>
+<script src="<%=basePath%>js/plugins/chosen/chosen.jquery.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {

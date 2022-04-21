@@ -16,9 +16,9 @@
 
 <body class="gray-bg">
 <script id="container" name="content" type="text/plain">这里写你的初始化内容</script>
-<script type="text/javascript" src="<%=basePath%>static/js/ueditor1_4_3/ueditor.config.js"></script>
-<script type="text/javascript" src="<%=basePath%>static/js/ueditor1_4_3/ueditor.all.js"></script>
-<script type="text/javascript" charset="utf-8" src="<%=basePath%>statcc/js/plugs/ueditor1_4_3_3-gbk-php/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/ueditor1_4_3/ueditor.config.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/ueditor1_4_3/ueditor.all.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=basePath%>js/plugs/ueditor1_4_3_3-gbk-php/lang/zh-cn/zh-cn.js"></script>
 <!-- 实例化编辑器 -->
 <script type="text/javascript">
     var ue = UE.getEditor('container');

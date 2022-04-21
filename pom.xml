@@ -159,6 +159,13 @@
             <version>3.0.2.RELEASE</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>com.gitee.qdbp.thirdparty</groupId>
+            <artifactId>ueditor</artifactId>
+            <version>1.4.3.6</version>
+        </dependency>
+
     </dependencies>
 
     <build>

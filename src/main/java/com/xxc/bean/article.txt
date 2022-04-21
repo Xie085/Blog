@@ -1,0 +1,6 @@
+CREATE TABLE `t_category` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `categoryName` VARCHAR(20) NOT NULL COMMENT '分类名称  唯一',
+  `iconClass` VARCHAR(45) NOT NULL COMMENT '图标样式',
+  `aliasName` VARCHAR(20) NOT NULL COMMENT '别名  唯一  比如新闻 就用News 代替  栏目Id不显示在url中',
+  `sort` INT(11)
