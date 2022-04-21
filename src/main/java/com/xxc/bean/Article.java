@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author xiangcheng
@@ -26,4 +27,5 @@ public class Article {
     private String author;
     private Date createTime;
     private Integer showCount;
+    private List<Integer> tagList;
 }

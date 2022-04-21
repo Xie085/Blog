@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<header class="article-header">
 			<h1 class="article-title">${article.title}</h1>
 			<ul class="article-meta">
-				<li>作者：${article.author}&nbsp;&nbsp;&nbsp;&nbsp;发布于:${article.time}</li>
+				<li>作者：${article.author}&nbsp;&nbsp;&nbsp;&nbsp;发布于:${article.createTime}</li>
 				<li>分类：<a rel="category tag" data-original-title="" title="">${article.categoryName}</a></li>
 			</ul>
 		</header>

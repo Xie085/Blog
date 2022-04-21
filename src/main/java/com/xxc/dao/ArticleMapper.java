@@ -1,6 +1,7 @@
 package com.xxc.dao;
 
 
+import com.xxc.bean.Article;
 
 /**
  * @author xiangcheng
@@ -8,5 +9,6 @@ package com.xxc.dao;
  * @since JDK8
  */
 public interface ArticleMapper {
-
+    Article addArticle(Article article);
+    Article getArticleById(Integer id);
 }

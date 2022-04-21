@@ -5,6 +5,22 @@
     <resultMap id="articleMap" type="com.xxc.bean.Article">
         <!--通过类型转换器将blob类型转化为String类型-->
         <result column="content" property="content" typeHandler="com.xxc.util.ConvertBlobTypeHandler"/>
+        <result column="categoryId" property="categoryId"/>
+        <result column="title" property="title"/>
+        <result column="description" property="description"/>
+        <result column="statue" property="statue"/>
+        <result column="author" property="author"/>
+        <result column="createTime" property="createTime"/>
+        <result column="showCount" property="showCount"/>
     </resultMap>
+
+    <insert id="addArticle" parameterType="com.xxc.bean.Article" >
+        insert into myblog.t_article(categoryId, title, content, description, statue, author, createTime)
+        values (#{categoryId}, #{title}, #{content}, #{description}, #{statue}, #{author}, #{createTime})
+    </insert>
+
+    <select id="getArticleById" parameterType="int" resultMap="articleMap">
+        select * from myblog.t_article where id = #{id}
+    </select>
 
 </mapper>

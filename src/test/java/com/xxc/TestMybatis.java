@@ -1,7 +1,9 @@
 package com.xxc;
 
+import com.xxc.bean.Article;
 import com.xxc.bean.User;
 import com.xxc.dao.UserMapper;
+import com.xxc.service.ArticleService;
 import com.xxc.service.UserService;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -20,8 +22,8 @@ public class TestMybatis {
     @Test
     public void test01(){
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("spring-core.xml");
-        UserService bean = ctx.getBean(UserService.class);
-        User user = bean.getUser(1);
+        ArticleService bean = ctx.getBean(ArticleService.class);
+        Article user = bean.getArticleById(1);
         System.out.println("user = " + user);
     }
 
