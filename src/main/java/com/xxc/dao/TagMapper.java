@@ -11,4 +11,5 @@ import java.util.List;
  */
 public interface TagMapper {
     List<Tag> getAllTag();
+    Tag getTag(Integer id);
 }

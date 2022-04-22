@@ -6,4 +6,8 @@
         insert into myblog.t_article_tag
         values (#{articleId},#{tagId})
     </insert>
+
+    <select id="getArticleTags" resultType="int" parameterType="int">
+        select tagId from myblog.t_article_tag where articleId = #{articleId}
+    </select>
 </mapper>

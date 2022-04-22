@@ -23,13 +23,15 @@ public class TestMybatis {
     public void test01(){
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("spring-core.xml");
         ArticleService bean = ctx.getBean(ArticleService.class);
-        Article user = bean.getArticleById(1);
+        Article user = bean.getArticleById(15);
         System.out.println("user = " + user);
     }
 
-//    @Test
-//    public void test02(){
-//        User user = userMapper.getUserById(1);
-//        System.out.println("user = " + user);
-//    }
+    @Test
+    public void test02(){
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("spring-core.xml");
+        ArticleService bean = ctx.getBean(ArticleService.class);
+        Article articleById = bean.getArticleById(15);
+        System.out.println("user = " + articleById);
+    }
 }

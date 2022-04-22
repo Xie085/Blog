@@ -2,6 +2,8 @@ package com.xxc.dao;
 
 import com.xxc.bean.ArticleTag;
 
+import java.util.List;
+
 /**
  * @author xiangcheng
  * @version 2022/4/21 16:01
@@ -9,4 +11,5 @@ import com.xxc.bean.ArticleTag;
  */
 public interface ArticleTagMapper {
     int addArticleTag(ArticleTag articleTag);
+    List<Integer> getArticleTags(Integer articleId);
 }

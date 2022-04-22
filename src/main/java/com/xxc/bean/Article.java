@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -27,5 +28,12 @@ public class Article {
     private String author;
     private Date createTime;
     private Integer showCount;
-    private List<Integer> tagList;
+    private List<Tag> tagList;
+    private String time;
+    private String categoryName;
+
+    public String getTime() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return simpleDateFormat.format(createTime);
+    }
 }

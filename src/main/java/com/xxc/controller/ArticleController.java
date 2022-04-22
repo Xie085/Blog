@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -56,7 +57,7 @@ public class ArticleController {
         article.setStatue(0);
         article.setCreateTime(new Date());
         article.setAuthor("零时用户");
-        System.out.println("article = " + article);
+//        System.out.println("article = " + article);
         int i = articleService.addArticle(article);
         if (i > 0) {
             return new Result("success", "处理成功");
@@ -65,9 +66,11 @@ public class ArticleController {
     }
 
     @RequestMapping("/{id}")
-    public String detail(@PathVariable("id")Integer id,Model model){
+    public ModelAndView detail(@PathVariable("id")Integer id, ModelAndView model){
         Article article = articleService.getArticleById(id);
-        model.addAttribute("article",article);
-        return "article/article_detail";
+        model.addObject("article",article);
+        model.setViewName("article/article_detail");
+//        System.out.println("article = " + article);
+        return model;
     }
 }

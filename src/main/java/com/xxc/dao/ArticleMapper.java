@@ -9,6 +9,6 @@ import com.xxc.bean.Article;
  * @since JDK8
  */
 public interface ArticleMapper {
-    Article addArticle(Article article);
+    int addArticle(Article article);
     Article getArticleById(Integer id);
 }
