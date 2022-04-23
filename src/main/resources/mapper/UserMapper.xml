@@ -3,6 +3,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xxc.dao.UserMapper">
     <select id="getUserById" resultType="com.xxc.bean.User" parameterType="int">
-        select * from myblog.t_manager where id=#{id}
+        select *
+        from myblog.t_manager
+        where id = #{id}
+    </select>
+    <select id="getUserByNameAndPassword" resultType="com.xxc.bean.User">
+        select *
+        from myblog.t_manager
+        where userName = #{userName} and password = #{password}
     </select>
 </mapper>

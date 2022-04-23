@@ -1,6 +1,7 @@
 package com.xxc.dao;
 
 import com.xxc.bean.ArticleTag;
+import com.xxc.bean.Tag;
 
 import java.util.List;
 
@@ -12,4 +13,5 @@ import java.util.List;
 public interface ArticleTagMapper {
     int addArticleTag(ArticleTag articleTag);
     List<Integer> getArticleTags(Integer articleId);
+    List<Tag> getTagByArticleId(Integer articleId);
 }

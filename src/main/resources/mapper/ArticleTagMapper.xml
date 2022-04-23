@@ -10,4 +10,9 @@
     <select id="getArticleTags" resultType="int" parameterType="int">
         select tagId from myblog.t_article_tag where articleId = #{articleId}
     </select>
+
+    <select id="getTagByArticleId" resultType="com.xxc.bean.Tag">
+        select * from myblog.t_article_tag ta,myblog.t_tag tt
+        where ta.tagId = tt.id and ta.articleId = #{articleId}
+    </select>
 </mapper>

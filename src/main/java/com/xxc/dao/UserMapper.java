@@ -1,6 +1,7 @@
 package com.xxc.dao;
 
 import com.xxc.bean.User;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @author xiangcheng
@@ -9,4 +10,5 @@ import com.xxc.bean.User;
  */
 public interface UserMapper {
     User getUserById(Integer id);
+    User getUserByNameAndPassword(@Param("userName") String userName,@Param("password") String password);
 }

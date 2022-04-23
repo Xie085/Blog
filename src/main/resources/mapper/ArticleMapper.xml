@@ -14,15 +14,35 @@
         <result column="showCount" property="showCount"/>
     </resultMap>
 
-    <insert id="addArticle" parameterType="com.xxc.bean.Article" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+    <insert id="addArticle" parameterType="com.xxc.bean.Article" useGeneratedKeys="true" keyProperty="id"
+            keyColumn="id">
         insert into myblog.t_article(categoryId, title, content, description, statue, author, createTime)
         values (#{categoryId}, #{title}, #{content}, #{description}, #{statue}, #{author}, #{createTime})
     </insert>
 
     <select id="getArticleById" parameterType="int" resultMap="articleMap">
-        select a.*,c.categoryName
-        from myblog.t_article a,myblog.t_category c
-        where a.categoryId = c.id and a.id = #{id}
+        select a.*, c.categoryName
+        from myblog.t_article a,
+             myblog.t_category c
+        where a.categoryId = c.id
+          and a.id = #{id}
+    </select>
+
+    <select id="getAllArticle" resultMap="articleMap">
+        select a.*, c.categoryName
+        from myblog.t_article a,
+             myblog.t_category c
+        where a.categoryId = c.id
+        order by a.createTime desc
+    </select>
+
+    <select id="getAllArticleByCategoryId" resultMap="articleMap">
+        select a.*, c.categoryName
+        from myblog.t_article a,
+             myblog.t_category c
+        where a.categoryId = c.id
+          and a.categoryId = #{categoryId}
+        order by a.createTime desc
     </select>
 
 </mapper>

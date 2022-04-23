@@ -1,5 +1,6 @@
 package com.xxc.service;
 
+import com.xxc.bean.Article;
 import com.xxc.bean.Category;
 import com.xxc.dao.CategoryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,4 +21,9 @@ public class CategoryService {
     public List<Category> getAllCategory(){
         return categoryMapper.getAllCategory();
     }
+
+    public Category getCategory(Integer id){
+        return categoryMapper.getCategoryById(id);
+    }
+
 }

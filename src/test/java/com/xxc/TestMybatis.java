@@ -8,6 +8,8 @@ import com.xxc.service.UserService;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 /**
  * @author xiangcheng
  * @version 2022/4/18 13:00
@@ -33,5 +35,15 @@ public class TestMybatis {
         ArticleService bean = ctx.getBean(ArticleService.class);
         Article articleById = bean.getArticleById(15);
         System.out.println("user = " + articleById);
+    }
+
+    @Test
+    public void test03(){
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("spring-core.xml");
+        ArticleService bean = ctx.getBean(ArticleService.class);
+        List<Article> articles = bean.getAllArticles();
+        for (Article article : articles) {
+            System.out.println("article = " + article);
+        }
     }
 }

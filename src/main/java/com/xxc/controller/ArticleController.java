@@ -1,9 +1,7 @@
 package com.xxc.controller;
 
-import com.xxc.bean.Article;
-import com.xxc.bean.Category;
-import com.xxc.bean.Result;
-import com.xxc.bean.Tag;
+import com.xxc.bean.*;
+import com.xxc.config.Config;
 import com.xxc.service.ArticleService;
 import com.xxc.service.CategoryService;
 import com.xxc.service.TagService;
@@ -16,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.Date;
@@ -37,7 +36,12 @@ public class ArticleController {
     ArticleService articleService;
 
     @RequestMapping("/add")
-    public String add(Model model) {
+    public String add(Model model, HttpSession session) {
+        //只有在登录时才能使用的功能就需要使用到session
+        User user = (User)session.getAttribute(Config.loginKey);
+        if (user == null){
+            return "redirect:../login";
+        }
         List<Tag> tagList = tagService.getAllTag();
         List<Category> categoryList = categoryService.getAllCategory();
         model.addAttribute("tagList", tagList);
@@ -72,5 +76,17 @@ public class ArticleController {
         model.setViewName("article/article_detail");
 //        System.out.println("article = " + article);
         return model;
+    }
+
+    @RequestMapping("/list")
+    public String back(Model model) {
+        //类别列表
+        List <Category> categories = categoryService.getAllCategory();
+        //标签列表
+        List <Tag> tags = tagService.getAllTag();
+
+        model.addAttribute("categoryList", categories);
+        model.addAttribute("tagList",tags);
+        return "article/article_list";
     }
 }

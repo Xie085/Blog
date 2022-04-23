@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				dataType : "json",
 				success : function(data) {
 					if (data.resultCode == 'success') {
-						window.location.href = "/article/back";
+						window.location.href = "/article/add";
 					}else{
 						toastr.error(data.errorInfo);
 						return false;
@@ -69,10 +69,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <form id="form" class="m-t" role="form" >
 				<div class="form-group"><h2 >博客系统登录后台</h2></div>
                 <div class="form-group">
-                    <input type="text" name="name" id="loginId" class="form-control" placeholder="用户名">
+                    <input type="text" name="userName" id="loginId" class="form-control" placeholder="用户名">
                 </div>
                 <div class="form-group">
-                    <input type="password" name="passwd" id="password" class="form-control" placeholder="密码">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="密码">
                 </div>
                 <button type="button" class="btn btn-primary block full-width m-b" onclick="login()">登 录</button>
 

@@ -1,12 +1,14 @@
 package com.xxc.controller;
 
+import com.xxc.bean.Result;
 import com.xxc.bean.User;
 import com.xxc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * @author xiangcheng
@@ -18,27 +20,24 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("/user/{id}")
-    public String getUser(@PathVariable("id")Integer id){
-        User user = userService.getUser(id);
-        System.out.println("user = " + user);
-        return "success";
+
+
+    @RequestMapping("/login")
+    public String getUser() {
+        return "user/login";
     }
 
-    @RequestMapping("/users/{id}")
+    @RequestMapping("/checklogin")
     @ResponseBody
-    public User getById(@PathVariable("id")Integer id){
-        return userService.getUser(id);
-    }
-
-    @RequestMapping("/")
-    public String index(){
-        return "index";
-    }
-
-    @RequestMapping("/testueditorTest")
-    public String testController(){
-        return "ueditorTest";
+    public Result checklogin(User user, HttpSession session) {
+//        System.out.println("user = " + user);
+        boolean b = userService.checkLogin(user.getUserName(), user.getPassword());
+        Result result = new Result("fail", "失败");
+        if (b) {
+            session.setAttribute("logininfo",user);
+            return new Result("success", "成功");
+        }
+        return result;
     }
 
 }

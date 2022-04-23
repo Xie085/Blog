@@ -21,4 +21,13 @@ public class UserService {
         }
         return userMapper.getUserById(id);
     }
+
+    public boolean checkLogin(String userName,String password){
+        User user = userMapper.getUserByNameAndPassword(userName, password);
+        if (user!=null){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

@@ -10,7 +10,7 @@ String basePath1 = request.getScheme()+"://"+request.getServerName()+":"+request
 <c:forEach items="${articleList}" var="article">
 	<article class="excerpt excerpt-one">
 		<header>
-			<a class="cat label label-important" href="<%=basePath%>loadPage1/${article.catagoryId}" data-original-title="" title="">${article.categoryName}
+			<a class="cat label label-important" href="<%=basePath%>loadPage1/${article.categoryId}" data-original-title="" title="">${article.categoryName}
 				<i class="label-arrow"></i>
 			</a>
 			<h2><a target="_blank" href="<%=basePath1%>article/${article.id}" title="${article.title}">${article.title}</a></h2>
@@ -32,9 +32,9 @@ String basePath1 = request.getScheme()+"://"+request.getServerName()+":"+request
 <p class="text-muted views">
 	<span class="post-views">阅读(${article.showCount})</span>
 	<span class="post-tags">标签：
-		<c:forEach items="${article.tags}" var="tag" varStatus="status">
+		<c:forEach items="${article.tagList}" var="tag" varStatus="status">
 			<a href="javascript:void(0)"  rel="tag" data-original-title="" title="">${tag.tagName}</a>
-			<c:if test="${fn:length(article.tags) > (status.index+1)}">
+			<c:if test="${fn:length(article.tagList) > (status.index+1)}">
 				/
 			</c:if>
 		</c:forEach>

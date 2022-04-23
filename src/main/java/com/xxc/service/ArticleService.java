@@ -9,6 +9,7 @@ import com.xxc.dao.TagMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,12 +41,35 @@ public class ArticleService {
 
     public Article getArticleById(Integer id) {
         Article article = articleMapper.getArticleById(id);
-        List<Integer> tags = articleTagMapper.getArticleTags(id);
-        List<Tag> tagsList = new ArrayList<>();
-        for (Integer tag : tags) {
-            tagsList.add(tagMapper.getTag(tag));
-        }
-        article.setTagList(tagsList);
+        List<Tag> tags1 = articleTagMapper.getTagByArticleId(id);
+        article.setTagList(tags1);
         return article;
+    }
+
+    public List<Article> getAllArticles(){
+        List<Article> allArticle = articleMapper.getAllArticle();
+        List<Article> articles = dataHandler(allArticle);
+        return articles;
+    }
+
+    //按照类别获取所有文章信息
+    public List<Article> getArticlesByCategory(Integer id){
+        List<Article> articles = articleMapper.getAllArticleByCategoryId(id);
+        List<Article> articles1 = dataHandler(articles);
+        return articles1;
+    }
+
+    //统一业务逻辑
+    private List<Article> dataHandler(List<Article> articles){
+        if (articles == null ||articles.size() < 1){
+            return articles;
+        }
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        for (Article article : articles) {
+            article.setTime(dateFormat.format(article.getCreateTime()));
+            List<Tag> tag = articleTagMapper.getTagByArticleId(article.getId());
+            article.setTagList(tag);
+        }
+        return articles;
     }
 }
